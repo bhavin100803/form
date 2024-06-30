@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "703750091909",
+    "firebase_url": "https://form-c3a28-default-rtdb.firebaseio.com",
+    "project_id": "form-c3a28",
+    "storage_bucket": "form-c3a28.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:703750091909:android:4d00cbd3e9a9a51619a5ec",
+        "android_client_info": {
+          "package_name": "com.example.form"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFp0ERgYfDckCiqxpA8FKAqP1SlFsUjsk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
