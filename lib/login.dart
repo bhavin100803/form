@@ -54,7 +54,7 @@ class _loginWidgetState extends State<loginWidget> {
   final addsController = TextEditingController();
   final EmainController = TextEditingController();
   final phoneController = TextEditingController();
-  final databaseref = FirebaseDatabase.instance.ref("Details");
+  final databaseref = FirebaseDatabase.instance.ref("Form");
   int _selectedvalue = 1;
 
   // var selectedValue;
@@ -73,7 +73,7 @@ class _loginWidgetState extends State<loginWidget> {
     "Ludhiana"
   ];
 
-  var state = ["Gujrat", "Madhya Pradesh", "Punjab", "Andhra radesh"];
+  var state = ["Gujrat", "Madhya Pradesh", "Punjab", "Andhra pradesh"];
 
   @override
   Widget build(BuildContext context) {
@@ -96,26 +96,30 @@ class _loginWidgetState extends State<loginWidget> {
                       cursorColor: Colors.black,
                       controller: nameController,
                       decoration: InputDecoration(
-                          hintText: 'Enter Your Name',
-                          filled: true,
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(21),
-                            borderSide:
-                                BorderSide(width: 2, color: Colors.black),
-                          )),
+                        hintText: 'Enter Your Name',
+                        filled: true,
+                        // focusedBorder: OutlineInputBorder(
+                        //   borderRadius: BorderRadius.circular(21),
+                        //   borderSide:
+                        //       BorderSide(width: 2, color: Colors.black),
+                        // )
+                      ),
+                      style: commontextstyle(),
                     ),
                     SizedBox(
                       height: 20,
                     ),
                     DropdownButtonFormField(
                         decoration: InputDecoration(
-                            label: Text('Enter City'),
-                            filled: true,
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(21),
-                              borderSide: const BorderSide(
-                                  color: Colors.black, width: 2),
-                            )),
+                          hintText: 'Enter City',
+                          filled: true,
+                          // enabledBorder: OutlineInputBorder(
+                          //   borderRadius: BorderRadius.circular(21),
+                          //   borderSide: const BorderSide(
+                          //       color: Colors.black, width: 2),
+                          // )
+                        ),
+                        style: commontextstyle(),
                         value: citydropdownvalue,
                         items: city.map((String item) {
                           return DropdownMenuItem(
@@ -131,10 +135,15 @@ class _loginWidgetState extends State<loginWidget> {
                     ),
                     DropdownButtonFormField(
                         decoration: InputDecoration(
-                            label: Text('Enter State'),
-                            filled: true,
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(21))),
+                          hintText: 'Enter State',
+                          filled: true,
+                          // enabledBorder: OutlineInputBorder(
+                          //   borderRadius: BorderRadius.circular(21),
+                          //   borderSide: const BorderSide(
+                          //       color: Colors.black, width: 2),
+                          // )
+                        ),
+                        style: commontextstyle(),
                         value: dropdownvalue,
                         items: state.map((String items) {
                           return DropdownMenuItem(
@@ -158,14 +167,16 @@ class _loginWidgetState extends State<loginWidget> {
                       controller: pinController,
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
-                          counter: Offstage(),
-                          hintText: 'Pin Code',
-                          filled: true,
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(21),
-                            borderSide:
-                                BorderSide(width: 2, color: Colors.black),
-                          )),
+                        counter: Offstage(),
+                        hintText: 'Pin Code',
+                        filled: true,
+                        // focusedBorder: OutlineInputBorder(
+                        //   borderRadius: BorderRadius.circular(21),
+                        //   borderSide:
+                        //       BorderSide(width: 2, color: Colors.black),
+                        // )
+                      ),
+                      style: commontextstyle(),
                     ),
                     SizedBox(
                       height: 20,
@@ -174,13 +185,15 @@ class _loginWidgetState extends State<loginWidget> {
                       cursorColor: Colors.black,
                       controller: addsController,
                       decoration: InputDecoration(
-                          hintText: 'Address',
-                          filled: true,
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(21),
-                            borderSide:
-                                BorderSide(width: 2, color: Colors.black),
-                          )),
+                        hintText: 'Address',
+                        filled: true,
+                        // focusedBorder: OutlineInputBorder(
+                        //   borderRadius: BorderRadius.circular(21),
+                        //   borderSide:
+                        //       BorderSide(width: 2, color: Colors.black),
+                        // )
+                      ),
+                      style: commontextstyle(),
                     ),
                     SizedBox(
                       height: 20,
@@ -196,18 +209,21 @@ class _loginWidgetState extends State<loginWidget> {
                       controller: EmainController,
                       obscureText: false,
                       decoration: InputDecoration(
-                          hintText: 'Email',
-                          filled: true,
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(21),
-                              borderSide:
-                                  BorderSide(color: Colors.black, width: 2))),
+                        hintText: 'Email',
+                        filled: true,
+                        // focusedBorder: OutlineInputBorder(
+                        //     borderRadius: BorderRadius.circular(21),
+                        //     borderSide:
+                        //         BorderSide(color: Colors.black, width: 2)
+                        // )
+                      ),
+                      style: commontextstyle(),
                     ),
                     SizedBox(
                       height: 20,
                     ),
                     TextFormField(
-                      maxLength: 6,
+                      maxLength: 50,
                       autovalidateMode: AutovalidateMode.always,
                       validator: validatePassword,
                       inputFormatters: <TextInputFormatter>[
@@ -218,13 +234,16 @@ class _loginWidgetState extends State<loginWidget> {
                       controller: passController,
                       obscureText: false,
                       decoration: InputDecoration(
-                          counter: Offstage(),
-                          hintText: 'Password',
-                          filled: true,
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(21),
-                              borderSide:
-                                  BorderSide(color: Colors.black, width: 2))),
+                        counter: Offstage(),
+                        hintText: 'Password',
+                        filled: true,
+                        // focusedBorder: OutlineInputBorder(
+                        //     borderRadius: BorderRadius.circular(21),
+                        //     borderSide:
+                        //         BorderSide(color: Colors.black, width: 2)
+                        // )
+                      ),
+                      style: commontextstyle(),
                     ),
                     SizedBox(
                       height: 20,
@@ -240,14 +259,16 @@ class _loginWidgetState extends State<loginWidget> {
                       cursorColor: Colors.black,
                       controller: phoneController,
                       decoration: InputDecoration(
-                          counter: Offstage(),
-                          hintText: 'Phone no',
-                          filled: true,
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(21),
-                            borderSide:
-                                BorderSide(width: 2, color: Colors.black),
-                          )),
+                        counter: Offstage(),
+                        hintText: 'Phone',
+                        filled: true,
+                        // focusedBorder: OutlineInputBorder(
+                        //   borderRadius: BorderRadius.circular(21),
+                        //   borderSide:
+                        //       BorderSide(width: 2, color: Colors.black),
+                        // )
+                      ),
+                      style: commontextstyle(),
                     ),
                     SizedBox(
                       height: 20,
@@ -257,7 +278,7 @@ class _loginWidgetState extends State<loginWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
-                          Text('Gender', style: TextStyle(fontSize: 18)),
+                          Text('Gender', style: commontextstyle()),
                           Container(
                             child: Column(
                               children: <Widget>[
@@ -271,7 +292,7 @@ class _loginWidgetState extends State<loginWidget> {
                                         title: Text("Male"),
                                         onChanged: (newValue) => setState(
                                             () => _selectedvalue = newValue!),
-                                        activeColor: Colors.blue,
+                                        activeColor: Colors.black,
                                         selected: false,
                                       ),
                                     ),
@@ -283,7 +304,7 @@ class _loginWidgetState extends State<loginWidget> {
                                         title: Text("Female"),
                                         onChanged: (newValue) => setState(
                                             () => _selectedvalue = newValue!),
-                                        activeColor: Colors.blue,
+                                        activeColor: Colors.black,
                                         selected: false,
                                       ),
                                     ),
@@ -360,7 +381,6 @@ class _loginWidgetState extends State<loginWidget> {
                             ));
                             return;
                           }
-
                           print("Name: " + nameController.text.toString());
                           print("City: " + citydropdownvalue);
                           print("State: " + dropdownvalue);
@@ -369,31 +389,58 @@ class _loginWidgetState extends State<loginWidget> {
                           print("Email: " + EmainController.text.toString());
                           print("Password: " + passController.text.toString());
                           print("Phone no " + phoneController.text.toString());
-
                           var Gender = "";
                           if (_selectedvalue == 1) {
                             Gender = "male";
                           } else if (_selectedvalue == 2) {
                             Gender = "Female";
                           }
-                          print("Gender: " + Gender.toString());
-                          
-                          databaseref.set({
-                            "name":nameController.text.toString(),
-                            "city":  citydropdownvalue.toString(),
-                            "state": dropdownvalue.toString(),
-                            "pin Code": pinController.text.toString(),
-                            "address":  addsController.text.toString(),
-                            "email": EmainController.text.toString(),
-                            "password": passController.text.toString(),
-                            "Phone": phoneController.text.toString(),
-                            "gender": Gender.toString()
-
+                           print("Gender: " + Gender.toString());
+                          // databaseref.set({
+                          //   "name": nameController.text.toString(),
+                          //   "city": citydropdownvalue.toString(),
+                          //   "state": dropdownvalue.toString(),
+                          //   "pin Code": pinController.text.toString(),
+                          //   "address": addsController.text.toString(),
+                          //   "email": EmainController.text.toString(),
+                          //   "password": passController.text.toString(),
+                          //   "Phone": phoneController.text.toString(),
+                          //   "gender": Gender.toString()
+                          // });
+                          databaseref
+                              .child(DateTime.now().microsecond.toString())
+                              .child("Details")
+                              .set({
+                            'name':
+                                nameController.text.toUpperCase().toString(),
+                            'city': citydropdownvalue.toUpperCase().toString(),
+                            'state': dropdownvalue.toUpperCase().toString(),
+                            'pin code':
+                                pinController.text.toUpperCase().toString(),
+                            'address':
+                                addsController.text.toUpperCase().toString(),
+                            'email':
+                                EmainController.text.toUpperCase().toString(),
+                            'password':
+                                passController.text.toUpperCase().toString(),
+                            'phone': phoneController.text.toString(),
+                            'gender': Gender.toUpperCase().toString(),
+                            'id': DateTime.now().microsecond.toString(),
                           });
+                          nameController.clear();
+                          pinController.clear();
+                          addsController.clear();
+                          EmainController.clear();
+                          passController.clear();
+                          phoneController.clear();
+                          FocusScope.of(context).unfocus();
                         },
                         child: Text(
                           'Save',
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600),
                         )),
                   ],
                 ),
@@ -402,6 +449,13 @@ class _loginWidgetState extends State<loginWidget> {
           ),
         ),
       ),
+    );
+  }
+  TextStyle commontextstyle() {
+    return TextStyle(
+      color: Colors.black,
+      fontSize: 18,
+      fontWeight: FontWeight.w500,
     );
   }
 }

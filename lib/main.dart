@@ -2,6 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:form/login.dart';
+import 'package:form/navigationbar.dart';
+import 'package:form/refresh.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,9 +35,7 @@ class _MyAppState extends State<MyApp>{
 debugShowCheckedModeBanner: false,
      initialRoute: 'Login',
      title: "Demo",
-     home: loginWidget(),
-
-
+     home: refreshWidget()
    );
   }
 }
