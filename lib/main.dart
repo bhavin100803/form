@@ -1,8 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:form/animation.dart';
 import 'package:form/login.dart';
 import 'package:form/navigationbar.dart';
+import 'package:form/slideble.dart';
 import 'package:form/refresh.dart';
 
 Future main() async {
@@ -33,9 +35,8 @@ class _MyAppState extends State<MyApp>{
   Widget build(BuildContext context) {
    return const MaterialApp(
 debugShowCheckedModeBanner: false,
-     initialRoute: 'Login',
      title: "Demo",
-     home: refreshWidget()
+     home: animationWidget()
    );
   }
 }

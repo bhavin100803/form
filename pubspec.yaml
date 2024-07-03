@@ -40,6 +40,9 @@ dependencies:
   firebase_database: ^10.1.0
   pie_chart: ^5.1.0
   flutter_animate: ^4.5.0
+  sensors_plus: ^3.1.0
+  animated_text_kit: ^4.2.1
+  flutter_slidable: ^3.1.0
 
 
 dev_dependencies:
@@ -52,6 +55,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^3.0.0
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
