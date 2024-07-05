@@ -43,6 +43,9 @@ dependencies:
   sensors_plus: ^3.1.0
   animated_text_kit: ^4.2.1
   flutter_slidable: ^3.1.0
+  simple_circular_progress_bar: ^1.0.2
+  backdrop: ^0.9.1
+  sliver_tools: ^0.2.5
 
 
 dev_dependencies:
