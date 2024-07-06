@@ -61,8 +61,8 @@ class _animationWidgetState extends State<animationWidget> {
   // }
   // bool _stretch = true;
 
-  // final nameController = TextEditingController();
-  // final emailController = TextEditingController();
+  final nameController = TextEditingController();
+  final emailController = TextEditingController();
 
   // List<String> items = List.generate(20, (index) => 'Item ${index + 1}');
 
@@ -74,19 +74,51 @@ class _animationWidgetState extends State<animationWidget> {
   //   (Colors.white, Colors.green, CircleBorder()),
   // ];
   // int index = 0;
+  @override
+  void dispose() {
+    // Clean up the controller
+    // when the widget is disposed.
+    nameController.dispose();
+    emailController.dispose();
+    super.dispose();
+  }
 
-
-@override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-     appBar: AppBar(
-       backgroundColor: Colors.blue,
-     ),
-      body: const ExpandedExample(),
-
-
-
-
+      appBar: AppBar(
+        backgroundColor: Colors.blue,
+      ),
+      body: Center(
+        child: Container(
+          child: Column(
+            children: [
+              Center(
+                child: TextField(
+                    cursorColor: Colors.black,
+                    controller: nameController,
+                    decoration: InputDecoration(hintText: "Enter your name")),
+              ),
+              TextField(
+                cursorColor: Colors.black,
+                controller: emailController,
+                decoration: InputDecoration(
+                    hintText: "Enter your email"),
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              firstpageWidget(name: nameController.text,email: emailController.text,),
+                        ));
+                  },
+                  child: const Text('Click'))
+            ],
+          ),
+        ),
+      ),
 
 //   floating button
 // const Center(child: Text('Press the button below!')),
@@ -101,7 +133,6 @@ class _animationWidgetState extends State<animationWidget> {
 //   shape: customizations[index].$3,
 //   child: const Icon(Icons.navigation),
 // ),
-
 
 //   CustomScrolllview
 
@@ -188,7 +219,6 @@ class _animationWidgetState extends State<animationWidget> {
 //   )
 // ])
 
-
 //   dismissible
 
 // ListView.builder(
@@ -227,37 +257,7 @@ class _animationWidgetState extends State<animationWidget> {
 //   },
 // ),
 
-
 //   first screen to second screen
-
-// Center(
-//   child: Container(
-//     child: Column(
-//       children: [
-//         Center(
-//           child: TextField(
-//               cursorColor: Colors.black,
-//               controller: nameController,
-//               decoration:
-//               InputDecoration(hintText: "Enter your name")),
-//         ),
-//         TextField(
-//           cursorColor: Colors.black,
-//           controller: emailController,
-//           decoration: InputDecoration(
-//               hintText: "Enter your email"
-//           ),
-//         ),
-//         ElevatedButton(onPressed: () {
-//           Navigator.push(
-//               context,
-//               MaterialPageRoute(builder: (context) => firstpageWidget(),
-//               ));
-//         }, child: Text('Click'))
-//       ],
-//     ),
-//   ),
-// ),
 
 //   opacity
 
@@ -643,48 +643,45 @@ class _animationWidgetState extends State<animationWidget> {
 //     ),
 //   ),
 // ),
-
-
     );
   }
 }
 
-class ExpandedExample extends StatelessWidget {
-  const ExpandedExample({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(9.0),
-            child: Container(
-              color: Colors.orange,
-              height: 200,
-              width: 150,
-            ),
-          ),
-          Expanded(
-            child: Container(
-              color: Colors.white,
-              width: 150,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(9.0),
-            child: Container(
-              color: Colors.green,
-              height: 200,
-              width: 150,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
+// class ExpandedExample extends StatelessWidget {
+//   const ExpandedExample({super.key});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Center(
+//       child: Column(
+//         children: <Widget>[
+//           Padding(
+//             padding: const EdgeInsets.all(9.0),
+//             child: Container(
+//               color: Colors.orange,
+//               height: 200,
+//               width: 150,
+//             ),
+//           ),
+//           Expanded(
+//             child: Container(
+//               color: Colors.white,
+//               width: 150,
+//             ),
+//           ),
+//           Padding(
+//             padding: const EdgeInsets.all(9.0),
+//             child: Container(
+//               color: Colors.green,
+//               height: 200,
+//               width: 150,
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
 
 //  cliprect
 
@@ -742,7 +739,6 @@ class ExpandedExample extends StatelessWidget {
 //     );
 //   }
 // }
-
 
 // table
 
@@ -875,4 +871,3 @@ class ExpandedExample extends StatelessWidget {
 //     );
 //   }
 // }
-
