@@ -2,10 +2,11 @@ import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:form/thirdpage.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 import 'dart:math' as math;
 
-import 'package:form/firstpage.dart';
+import 'package:form/secondpage.dart';
 
 // const List<Widget> fruits = <Widget>[
 //   Text('Apple'),
@@ -73,45 +74,64 @@ class _animationWidgetState extends State<animationWidget> {
   //   (Colors.white, Colors.green, null),
   //   (Colors.white, Colors.green, CircleBorder()),
   // ];
+
   // int index = 0;
-  @override
-  void dispose() {
-    // Clean up the controller
-    // when the widget is disposed.
-    nameController.dispose();
-    emailController.dispose();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   // Clean up the controller
+  //   // when the widget is disposed.
+  //   nameController.dispose();
+  //   emailController.dispose();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Text('First page'),
         backgroundColor: Colors.blue,
       ),
       body: Center(
         child: Container(
+          margin: EdgeInsets.only(left: 25, right: 25, top: 30, bottom: 30),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Center(
                 child: TextField(
                     cursorColor: Colors.black,
                     controller: nameController,
-                    decoration: InputDecoration(hintText: "Enter your name")),
+                    decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(21),
+                        ),
+                        hintText: "Enter your name")),
+              ),
+              SizedBox(
+                height: 10,
               ),
               TextField(
                 cursorColor: Colors.black,
                 controller: emailController,
                 decoration: InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(21),
+                    ),
                     hintText: "Enter your email"),
+              ),
+              SizedBox(
+                height: 20,
               ),
               ElevatedButton(
                   onPressed: () {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) =>
-                              firstpageWidget(name: nameController.text,email: emailController.text,),
+                          builder: (context) => second_pagewidget(
+                            name: nameController.text,
+                            email: emailController.text,
+                          ),
                         ));
                   },
                   child: const Text('Click'))

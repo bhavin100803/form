@@ -87,7 +87,7 @@ class _loginWidgetState extends State<loginWidget> {
           // height: MediaQuery.of(context).size.height,
           color: Colors.blue.shade200,
           child: Container(
-            margin: EdgeInsets.only(left: 20,right: 20,top: 30,bottom: 30),
+            margin: EdgeInsets.only(left: 20, right: 20, top: 30, bottom: 30),
             child: Column(
               children: [
                 TextField(
@@ -120,8 +120,7 @@ class _loginWidgetState extends State<loginWidget> {
                     style: commontextstyle(),
                     value: citydropdownvalue,
                     items: city.map((String item) {
-                      return DropdownMenuItem(
-                          value: item, child: Text(item));
+                      return DropdownMenuItem(value: item, child: Text(item));
                     }).toList(),
                     onChanged: (String? newVlaue) {
                       setState(() {
@@ -393,7 +392,7 @@ class _loginWidgetState extends State<loginWidget> {
                       } else if (_selectedvalue == 2) {
                         Gender = "Female";
                       }
-                       // print("Gender: " + Gender.toString());
+                      // print("Gender: " + Gender.toString());
                       // databaseref.set({
                       //   "name": nameController.text.toString(),
                       //   "city": citydropdownvalue.toString(),
@@ -409,16 +408,12 @@ class _loginWidgetState extends State<loginWidget> {
                           .child(DateTime.now().microsecond.toString())
                           .child("Details")
                           .set({
-                        'name':
-                            nameController.text.toUpperCase().toString(),
+                        'name': nameController.text.toUpperCase().toString(),
                         'city': citydropdownvalue.toUpperCase().toString(),
                         'state': dropdownvalue.toUpperCase().toString(),
-                        'pin code':
-                            pinController.text.toUpperCase().toString(),
-                        'address':
-                            addsController.text.toUpperCase().toString(),
-                        'email':
-                            EmainController.text.toUpperCase().toString(),
+                        'pin code': pinController.text.toUpperCase().toString(),
+                        'address': addsController.text.toUpperCase().toString(),
+                        'email': EmainController.text.toUpperCase().toString(),
                         'password':
                             passController.text.toUpperCase().toString(),
                         'phone': phoneController.text.toString(),
@@ -447,6 +442,7 @@ class _loginWidgetState extends State<loginWidget> {
       ),
     );
   }
+
   TextStyle commontextstyle() {
     return TextStyle(
       color: Colors.black,
