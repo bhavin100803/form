@@ -2,11 +2,12 @@ import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:form/thirdpage.dart';
+import 'package:flutter/services.dart';
+import 'package:form/Passing%20Data/thirdpage.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 import 'dart:math' as math;
 
-import 'package:form/secondpage.dart';
+import 'package:form/Passing%20Data/secondpage.dart';
 
 // const List<Widget> fruits = <Widget>[
 //   Text('Apple'),
@@ -31,6 +32,15 @@ class animationWidget extends StatefulWidget {
 
   @override
   State<animationWidget> createState() => _animationWidgetState();
+}
+
+String? validateemail(String? value) {
+  const pattern = r'[a-z0-9_\-]+[@][a-z]+[\.][a-z]{2,3}';
+  final regex = RegExp(pattern);
+
+  return value!.isNotEmpty && !regex.hasMatch(value)
+      ? 'Enter valid email address like "xyz@demo.com"'
+      : null;
 }
 
 class _animationWidgetState extends State<animationWidget> {
@@ -89,8 +99,11 @@ class _animationWidgetState extends State<animationWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('First page'),
-        backgroundColor: Colors.blue,
+        title: Text(
+          'First page',
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Color(0xff3c415e),
       ),
       body: Center(
         child: Container(
@@ -104,27 +117,46 @@ class _animationWidgetState extends State<animationWidget> {
                     controller: nameController,
                     decoration: InputDecoration(
                         focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(21),
-                        ),
+                            borderRadius: BorderRadius.circular(21),
+                            borderSide: BorderSide(width: (3))),
                         hintText: "Enter your name")),
               ),
               SizedBox(
                 height: 10,
               ),
-              TextField(
+              TextFormField(
+                autovalidateMode: AutovalidateMode.always,
+                keyboardType: TextInputType.emailAddress,
                 cursorColor: Colors.black,
+                validator: validateemail,
+                inputFormatters: [
+                  FilteringTextInputFormatter.singleLineFormatter
+                ],
                 controller: emailController,
+                obscureText: false,
                 decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(21),
-                    ),
-                    hintText: "Enter your email"),
+                        borderRadius: BorderRadius.circular(21),
+                        borderSide: BorderSide(width: (3))),
+                    hintText: "Enter your email",
+                ),
               ),
               SizedBox(
                 height: 20,
               ),
               ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      minimumSize: Size(350, 40),
+                      backgroundColor: Color(0xff3c415e)),
                   onPressed: () {
+                    if (emailController.text.isEmpty) {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        content: Text('Please enter email'),
+                        duration: Duration(seconds: 2),
+                      ));
+                      return;
+                    }
+
                     Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -134,7 +166,13 @@ class _animationWidgetState extends State<animationWidget> {
                           ),
                         ));
                   },
-                  child: const Text('Click'))
+                  child: const Text(
+                    'Click',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold),
+                  ))
             ],
           ),
         ),

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:form/thirdpage.dart';
+import 'package:form/Passing%20Data/thirdpage.dart';
 
 class second_pagewidget extends StatefulWidget {
   const second_pagewidget({super.key, required this.name, required this.email,});
@@ -20,8 +20,8 @@ class _second_pageState extends State<second_pagewidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Second screen"),
-        backgroundColor: Colors.blue,
+        title: Text("Second screen",style: TextStyle(color: Colors.white),),
+        backgroundColor: Color(0xff3c415e),
       ),
       body: Center(
         child: Column(
@@ -36,12 +36,19 @@ class _second_pageState extends State<second_pagewidget> {
                 decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(21),
+                      borderSide: BorderSide(
+                        width: (3)
+                      )
                     ),
                     hintText: "Enter your age"),
               ),
             ),
             SizedBox(height: 20,),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                minimumSize: Size(350, 40),
+                backgroundColor: Color(0xff3c415e)
+              ),
                 onPressed: () {
                   Navigator.push(
                       context,
@@ -50,7 +57,7 @@ class _second_pageState extends State<second_pagewidget> {
                            thirdpagewidget(name: widget.name, email: widget.email, age: ageController.text)
                       ));
                 },
-                child: const Text('Click'))
+                child: const Text('Click',style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.white),))
           ],
         ),
       ),
